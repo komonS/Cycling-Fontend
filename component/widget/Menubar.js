@@ -1,16 +1,18 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image, AsyncStorage, TouchableOpacity, Button } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity, Button } from 'react-native'
 
-export default function Menubar({navigation}) {
+export default function Menubar(props) {
     return (
         <View style={styles.menubar}>
-            <TouchableOpacity style={styles.menuButton} onPress={()=>navigation.navigate('Post')}>
+            <TouchableOpacity style={styles.menuButton} onPress={()=>props.navigation.navigate('Post')}>
                 <Text style={styles.menuText}>Post</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.menuButton} onPress={()=>navigation.navigate('Statistic')}>
+            <TouchableOpacity style={styles.menuButton} onPress={()=>props.navigation.navigate('Statistic')}>
                 <Text style={styles.menuText}>Statistic</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.menuButton} onPress={()=>navigation.navigate('Chat')}>
+            <TouchableOpacity style={styles.menuButton} onPress={()=>props.navigation.navigate('Chat',{
+                roomID:props.roomID
+            })}>
                 <Text style={styles.menuText}>Chat</Text>
             </TouchableOpacity>
         </View>

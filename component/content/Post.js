@@ -13,7 +13,7 @@ export default function Post({ navigation, route }) {
             <View style={styles.roomName}>
                 <Text style={styles.roomNameText}>Room Name {roomID}</Text>
             </View>
-            <Menubar navigation={navigation} />
+            <Menubar navigation={navigation} roomID={roomID} />
             <ScrollView>
                 <PostFunction />
                 <PostContentAll navigation={navigation} />
