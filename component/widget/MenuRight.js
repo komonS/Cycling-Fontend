@@ -1,12 +1,14 @@
 import React, { useContext } from 'react'
-import { View, Text, StyleSheet, Image, TouchableOpacity, AsyncStorage, } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity, Animated, } from 'react-native'
 import { MenuContext } from '../../store/MenuProvider'
-import {LoginContext} from '../../store/LoginProvider'
+import { LoginContext } from '../../store/LoginProvider'
 
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 export default function MenuRight(props) {
     const { menu, setMenu } = useContext(MenuContext)
-    const {login,setLogin} = useContext(LoginContext)
+    const { login, setLogin } = useContext(LoginContext)
 
     const logout = async () => {
         setMenu(false)
@@ -16,6 +18,9 @@ export default function MenuRight(props) {
     }
     return (
         <View>
+            <TouchableOpacity style={styles.sideBarMenuIcon} onPress={()=>setMenu(false)}>
+                <FontAwesomeIcon icon={faChevronRight} style={styles.icon}  />
+            </TouchableOpacity>
             <View style={styles.sideBarMenu}>
                 <Text>Profile</Text>
             </View>
@@ -31,7 +36,15 @@ export default function MenuRight(props) {
 
 const styles = StyleSheet.create({
     sideBarMenu: {
-        borderColor: '#000',
-        borderWidth: 1
-    }
+        marginBottom:5,
+        backgroundColor:'#E8E2E2',
+        padding:10
+    },
+    sideBarMenuIcon:{
+        marginBottom:5
+    },
+    icon: {
+        padding: 15,
+        color: '#000'
+    },
 })

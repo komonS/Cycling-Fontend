@@ -7,11 +7,11 @@ import { MenuContext } from '../../store/MenuProvider'
 import MenuRight from '../widget/MenuRight'
 import { Overlay } from 'react-native-elements'
 
-import {LoginContext} from '../../store/LoginProvider'
+import { LoginContext } from '../../store/LoginProvider'
 
 export default function Header(props) {
     const { menu, setMenu } = useContext(MenuContext)
-    const {login,setLogin} = useContext(LoginContext)
+    const { login, setLogin } = useContext(LoginContext)
 
     const [userID, setUserID] = useState('')
 
@@ -120,6 +120,6 @@ const styles = StyleSheet.create({
         width: '80%',
         position: 'absolute',
         top: 0,
-        right: 0
+        right: 0,
     },
 });
